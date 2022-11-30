@@ -10,13 +10,22 @@ sleep(10)
 print('動作確認')
 
 try:
-    sleep(30)
+    sleep(20)
+    # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
     # login_button = driver.find_element(By.CSS_SELECTOR,'#karte-3620180 > div.karte-widget__container > div > div > div._CloseButton__3xX2_ > button')
     # login_button = driver.find_element(By.XPATH,'//*[@id="karte-3620180"]/div[2]/div/div/div[1]/button')
+    # login_button = driver.find_element(By.XPATH,'//*[@id="karte-3620180"]')
+    # login_button = driver.find_element(By.CLASS_NAME,'karte-close')
     login_button = driver.find_element(By.CLASS_NAME,'_SurveyEditor_TemplateForms__3xX2_')
-    sleep(20)
-    login_button.click()
-    sleep(10)
+
+    driver.execute_script("arguments[0].click();", login_button)
+
+    # sleep(20)
+    # login_button.submit()
+    # login_button.click()
+    # sleep(10)
+
 # except Exception:
 #     error_flg = True
 #     print('×ボタン押下時にエラーが発生しました。')
